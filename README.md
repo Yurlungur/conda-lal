@@ -14,15 +14,15 @@ These recipes were originally created by [Mike Boyle](https://github.com/moble).
 
 ## Short Instructions ##
 
-OS X users,
+Anybody can use the docker image maintained
+[here](https://ligo-cbc.github.io/pycbc/latest/html/docker.html). This
+is an alternative.
+
+64 bit Linux users,
 
 ```bash
-conda install -c moble pycbc
-```
-
-Linux users,
-
-```bash
+conda config --add channels conda-forge
+conda update -y --all
 conda install -c libframe metaio lalsuite
 pip install pycbc
 ```
