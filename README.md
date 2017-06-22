@@ -5,16 +5,31 @@ The usual instructions for `pycbc` are
 [here](http://ligo-cbc.github.io/pycbc/latest/html/install.html).
 They are long, and nested.  This is (hopefully) an easier option.
 
+## Authors ##
 
-## TL-DR ##
+`lalsuite`, `libframe`, and `libmetaio` are copywrite the LIGO
+Scientific Collaboration.
 
-Install [`anaconda`](https://www.continuum.io/downloads) and run this:
+These recipes were originally created by [Mike Boyle](https://github.com/moble).
+
+## Short Instructions ##
+
+OS X users,
+
 ```bash
 conda install -c moble pycbc
 ```
 
+Linux users,
 
-## Full instructions ##
+```bash
+conda install -c libframe metaio lalsuite
+pip install pycbc
+```
+
+All other users, see below
+
+## Instructions ##
 
 ### Install Anaconda ###
 
@@ -60,8 +75,8 @@ create and activate the environment, do this:
 ```bash
 conda create -y --name lal python=2.7
 source activate lal
+conda config --add channels conda-forge
 conda update -y --all
-pip install --upgrade pip
 ```
 
 Now, your current shell will always use python-y things from this
@@ -75,21 +90,16 @@ using or installing in this environment.
 ### Populate the environment with basic packages ###
 
 Whether or not you created the `lal` environment above, you should run
-this command:
+these commands:
 
 ```bash
-conda install -y numpy h5py cython
+conda install -y numpy h5py cython conda-build fftw gsl
 pip install python-cjson
-conda install -y -c moble fftw gsl libframe libmetaio glue lscsoft-user-env lalsuite
-
-unittest2
+conda build libframe
+conda install --use-local libframe
+conda build metaio
+conda install --use-local metaio
+conda build lalsuite
+conda install --use-local lalsuite
+pip install pycbc
 ```
-
-
-To build any of these packages yourself, you should first do
-
-```bash
-conda install -y anaconda-build
-```
-
-conda build --python 2.7 .

@@ -5,7 +5,10 @@ export LALSUITE_PREFIX=${PREFIX}
 
 ./00boot
 
-./configure --prefix=${PREFIX} --enable-swig-python
+./configure --prefix=${PREFIX} --enable-swig-python \
+    --disable-lalstochastic --disable-lalxml \
+    --disable-lalinference --disable-laldetchar \
+    --disable-lalapps
 
 make -j
 

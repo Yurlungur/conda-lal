@@ -3,8 +3,7 @@ package:
   version: '8.4.0_1'
 
 source:
-  git_url: git://versions.ligo.org/metaio.git
-  git_tag: release-8.4.0-v1
+  url: http://software.ligo.org/lscsoft/source/metaio-8.4.0.tar.gz
 
 build:
   detect_binary_files_with_prefix: true
