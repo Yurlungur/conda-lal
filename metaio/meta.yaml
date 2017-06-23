@@ -5,6 +5,12 @@ package:
 source:
   url: http://software.ligo.org/lscsoft/source/metaio-8.4.0.tar.gz
 
+requirements:
+  build:
+  - toolchain
+  - automake
+  - autoconf
+
 build:
   detect_binary_files_with_prefix: true
 
