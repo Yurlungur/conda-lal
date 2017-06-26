@@ -2,13 +2,24 @@
 
 export LALSUITE_SRCDIR=${SRC_DIR}
 export LALSUITE_PREFIX=${PREFIX}
-export CFLAGS="-I${PREFIX}/include ${CFLAGS}"
-export CXXFLAGS="-I${PREFIX}/include ${CXXFLAGS}"
-export LDFLAGS="-L${PREFIX}/lib ${LDFLAGS}"
+
+export CFLAGS="-I${PREFIX}/include -I${PREFIX}/include/gsl"
+export CXXFLAGS="-I${PREFIX}/include -I${PREFIX}/include/gsl"
+export CPPFLAGS="-I${PREFIX}/include -I${PREFIX}/include/gsl"
+export LDFLAGS="-L${PREFIX}/lib"
+export CC=gcc
+export CXX=g++
+
+which gcc
+gcc -print-search-dirs
+
+which g++
+g++ -print-search-dirs
 
 ./00boot
 
-./configure --prefix=${PREFIX} --enable-swig-python \
+./configure --prefix=${PREFIX} \
+    --enable-swig-python \
     --disable-lalstochastic --disable-lalxml \
     --disable-lalinference --disable-laldetchar \
     --disable-lalapps

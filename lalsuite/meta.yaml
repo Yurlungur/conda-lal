@@ -18,6 +18,8 @@ requirements:
     - libframe
     - metaio
     - toolchain
+    - gcc
+    - libgcc
     - autoconf
     - automake
 
