@@ -28,7 +28,7 @@ install:
     - |
       echo ""
       echo "Configuring conda."
-      source ~/miniconda3/bin/activate root
+      source ~/miniconda${PY_VERSION}/bin/activate root
       conda config --remove channels defaults
       conda config --add channels defaults
       conda config --add channels conda-forge
