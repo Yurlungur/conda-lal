@@ -2,6 +2,9 @@
 
 export LALSUITE_SRCDIR=${SRC_DIR}
 export LALSUITE_PREFIX=${PREFIX}
+export CFLAGS="-I${PREFIX}/include ${CFLAGS}"
+export CXXFLAGS="-I${PREFIX}/include ${CXXFLAGS}"
+export LDFLAGS="-L${PREFIX}/lib ${LDFLAGS}"
 
 ./00boot
 
