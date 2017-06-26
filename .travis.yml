@@ -39,10 +39,10 @@ install:
 
 script:
   - conda build libframe
-  - conda install --use-local libframe
+  - conda install -y --use-local libframe
   - conda build metaio
-  - conda install --use-local metaio
+  - conda install -y --use-local metaio
   - conda build lalsuite
-  - conda install --use-local lalsuite
+  - conda install -y --use-local lalsuite
   - pip install pycbc
 
