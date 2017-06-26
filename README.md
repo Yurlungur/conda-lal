@@ -1,3 +1,5 @@
+![travis build](https://travis-ci.org/Yurlungur/conda-lal.svg?branch=master)
+
 Installing LAL's python packages
 ================================
 
