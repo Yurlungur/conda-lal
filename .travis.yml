@@ -1,0 +1,47 @@
+language: generic
+
+notifications:
+  email: false
+sudo: false
+
+os: osx
+  - linux
+  - osx
+
+install:
+    # Install Miniconda.
+    - |
+      echo ""
+      echo "Installing a fresh version of Miniconda."
+      MINICONDA_URL="https://repo.continuum.io/miniconda"
+      if [ "$TRAVIS_OS_NAME" = linux ]; then
+        MINICONDA_FILE="Miniconda3-latest-Linux-x86_64.sh"
+      elif [ "$TRAVIS_OS_NAME" = osx ]; then
+        MINICONDA_FILE="Miniconda3-latest-MacOSX-x86_64.sh"
+      else
+	MINICONDA_FILE="Miniconda3-latest-Windows-x86_64.exe"
+      fi
+      curl -L -O "${MINICONDA_URL}/${MINICONDA_FILE}"
+      bash $MINICONDA_FILE -b
+    # Configure conda.
+    - |
+      echo ""
+      echo "Configuring conda."
+      source ~/miniconda3/bin/activate root
+      conda config --remove channels defaults
+      conda config --add channels defaults
+      conda config --add channels conda-forge
+      conda config --set show_channel_urls true
+      conda update -y --all
+      conda install -y numpy h5py cython conda-build fftw gsl
+      pip install python-cjson
+
+script:
+  - conda build libframe
+  - conda install --use-local libframe
+  - conda build metaio
+  - conda install --use-local metaio
+  - conda build lalsuite
+  - conda install --use-local lalsuite
+  - pip install pycbc
+
