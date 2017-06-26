@@ -13,13 +13,14 @@ install:
     - |
       echo ""
       echo "Installing a fresh version of Miniconda."
+      PY_VERSION=2
       MINICONDA_URL="https://repo.continuum.io/miniconda"
       if [ "$TRAVIS_OS_NAME" = linux ]; then
-        MINICONDA_FILE="Miniconda3-latest-Linux-x86_64.sh"
+        MINICONDA_FILE="Miniconda${PY_VERSION}-latest-Linux-x86_64.sh"
       elif [ "$TRAVIS_OS_NAME" = osx ]; then
-        MINICONDA_FILE="Miniconda3-latest-MacOSX-x86_64.sh"
+        MINICONDA_FILE="Miniconda${PY_VERSION}-latest-MacOSX-x86_64.sh"
       else
-        MINICONDA_FILE="Miniconda3-latest-Windows-x86_64.exe"
+        MINICONDA_FILE="Miniconda${PY_VERSION}-latest-Windows-x86_64.exe"
       fi
       curl -L -O "${MINICONDA_URL}/${MINICONDA_FILE}"
       bash $MINICONDA_FILE -b
