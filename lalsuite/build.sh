@@ -11,12 +11,6 @@ export CC=gcc
 export CXX=g++
 export PATH=${PREFIX}/bin
 
-which gcc
-gcc -print-search-dirs
-
-which g++
-g++ -print-search-dirs
-
 ./00boot
 
 ./configure --prefix=${PREFIX} \
