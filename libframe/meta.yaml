@@ -14,6 +14,7 @@ requirements:
   - autoconf
   - gcc
   - libgcc
+  - sed
 
 build:
   detect_binary_files_with_prefix: true
