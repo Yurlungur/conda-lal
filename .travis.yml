@@ -45,4 +45,5 @@ script:
   - conda build lalsuite
   - conda install -y --use-local lalsuite
   - pip install pycbc
+  - python ./test_waveform.py
 
