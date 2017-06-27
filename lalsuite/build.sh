@@ -9,12 +9,7 @@ export CPPFLAGS="-I${PREFIX}/include -I${PREFIX}/include/gsl"
 export LDFLAGS="-L${PREFIX}/lib"
 export CC=gcc
 export CXX=g++
-
-which gcc
-gcc -print-search-dirs
-
-which g++
-g++ -print-search-dirs
+export PATH=${PREFIX}/bin
 
 ./00boot
 
