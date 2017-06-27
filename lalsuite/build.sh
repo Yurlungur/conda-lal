@@ -7,13 +7,14 @@ export CFLAGS="-I${PREFIX}/include -I${PREFIX}/include/gsl"
 export CXXFLAGS="-I${PREFIX}/include -I${PREFIX}/include/gsl"
 export CPPFLAGS="-I${PREFIX}/include -I${PREFIX}/include/gsl"
 export LDFLAGS="-L${PREFIX}/lib"
-export CC=gcc
-export CXX=g++
 export PATH="${PREFIX}/bin:${PATH}"
+export CC="${PREFIX}/bin/gcc --sysroot=${PERFIX}"
+export CXX="${PREFIX}/bin/g++ --sysroot=${PREFIX}"
 
 ./00boot
 
 ./configure --prefix=${PREFIX} \
+    --with-sysroot=${PREFIX} \
     --enable-swig-python \
     --disable-lalstochastic --disable-lalxml \
     --disable-lalinference --disable-laldetchar \
