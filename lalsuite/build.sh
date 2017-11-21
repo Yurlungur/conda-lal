@@ -18,7 +18,8 @@ export CXX="${PREFIX}/bin/g++ --sysroot=${PREFIX}"
     --enable-swig-python \
     --disable-lalstochastic --disable-lalxml \
     --disable-lalinference --disable-laldetchar \
-    --disable-lalapps
+    --disable-lalapps --disable-lalframe \
+    --disable-lalmetaio --disable-lalpulsar
 
 make -j
 
