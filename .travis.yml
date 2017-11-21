@@ -38,10 +38,6 @@ install:
       pip install python-cjson
 
 script:
-  - conda build libframe
-  - conda install -y --use-local libframe
-  - conda build metaio
-  - conda install -y --use-local metaio
   - conda build lalsuite
   - conda install -y --use-local lalsuite
   - pip install pycbc

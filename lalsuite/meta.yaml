@@ -15,8 +15,6 @@ requirements:
     - swig
     - gsl
     - fftw
-    - libframe
-    - metaio
     - toolchain
     - gcc
     - libgcc
@@ -33,8 +31,6 @@ requirements:
     - swig
     - gsl
     - fftw
-    - libframe
-    - metaio
 
 build:
   detect_binary_files_with_prefix: true
