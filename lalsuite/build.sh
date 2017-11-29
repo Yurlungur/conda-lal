@@ -24,14 +24,19 @@ export CXX="${PREFIX}/bin/g++ --sysroot=${PREFIX}"
 make -j
 
 make install
+# source ${LALSUITE_PREFIX}/etc/lalsuiterc
 
-source ${LALSUITE_PREFIX}/etc/lalsuiterc
 
-cd ${LALSUITE_SRCDIR}/glue
-rm -rf build
-python setup.py install
-source ${LALSUITE_PREFIX}/etc/glue-user-env.sh
+mkdir -p ${PREFIX}/etc/conda/activate.d
+mkdir -p ${PREFIX}/etc/conda/deactivate.d
+echo 'source ${CONDA_PREFIX}/etc/lalsuite-user-env.sh' > ${PREFIX}/etc/conda/activate.d/lalsuite.sh
+# TODO unset things properly
 
-cd ${LALSUITE_SRCDIR}/pylal
-rm -rf build
-python setup.py install
+# cd ${LALSUITE_SRCDIR}/glue
+# rm -rf build
+# python setup.py install
+# source ${LALSUITE_PREFIX}/etc/glue-user-env.sh
+# 
+# cd ${LALSUITE_SRCDIR}/pylal
+# rm -rf build
+# python setup.py install

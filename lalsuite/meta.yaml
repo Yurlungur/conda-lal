@@ -21,6 +21,7 @@ requirements:
     - autoconf
     - automake
     - sed
+    - openblas
 
   run:
     - python
@@ -31,6 +32,8 @@ requirements:
     - swig
     - gsl
     - fftw
+    - sed
+    - openblas
 
 build:
   detect_binary_files_with_prefix: true
